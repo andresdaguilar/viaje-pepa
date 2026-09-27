@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { cookies } from "next/headers";
 import { Fraunces, Outfit } from "next/font/google";
 import { Shell } from "@/components/shell";
+import { AUTH_COOKIE, AUTH_VALUE } from "@/lib/auth";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -30,11 +32,14 @@ export const viewport: Viewport = {
   themeColor: "#fbf7f1",
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const jar = await cookies();
+  const unlocked = jar.get(AUTH_COOKIE)?.value === AUTH_VALUE;
+
   return (
     <html lang="es">
       <body className={`${outfit.variable} ${fraunces.variable}`}>
-        <Shell>{children}</Shell>
+        {unlocked ? <Shell>{children}</Shell> : children}
       </body>
     </html>
   );

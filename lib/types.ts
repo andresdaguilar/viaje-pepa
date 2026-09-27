@@ -51,6 +51,8 @@ export type Place = {
   name: string;
   area: string;
   address: string;
+  lat: number;
+  lon: number;
   blurb: string;
   hours?: string;
   highlights: Highlight[];
@@ -73,11 +75,20 @@ export type ItineraryItem = {
   plan?: string[];
 };
 
+export type VisaInfo = {
+  number: string;
+  type: string;
+  issued: string;
+  expires: string;
+  entries: string;
+};
+
 export type Traveler = {
   id: string;
   name: string;
   role: string;
   facts: Fact[];
+  visa: VisaInfo;
 };
 
 export type PackGroup = {

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { placeCategories, places, tripMapUrl } from "@/lib/data";
+import { placeCategories, places } from "@/lib/data";
 import type { PlaceCategory } from "@/lib/types";
 
 const tone: Record<PlaceCategory, string> = {
@@ -60,9 +60,9 @@ export function PlacesScreen() {
         {visible.length === 0 ? <p className="empty">Ningún lugar con ese nombre.</p> : null}
       </div>
       <div className="actions">
-        <a className="btn" href={tripMapUrl} target="_blank" rel="noreferrer">
-          Mapa del viaje
-        </a>
+        <Link className="btn" href="/mapa">
+          Ver en el mapa
+        </Link>
       </div>
     </>
   );

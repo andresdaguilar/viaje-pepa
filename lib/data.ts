@@ -21,6 +21,7 @@ export const travelers: Traveler[] = [
       { label: "Assist Card", value: "540 25434495 05C PR043 / 1" },
       { label: "Billete vuelta", value: "044-7504385048" },
     ],
+    visa: { number: "W6506928", type: "", issued: "15 abr 2026", expires: "9 abr 2036", entries: "" },
   },
   {
     id: "geronimo",
@@ -36,6 +37,7 @@ export const travelers: Traveler[] = [
       { label: "Assist Card", value: "540 25434496 05C PR043 / 1" },
       { label: "Billete vuelta", value: "044-7504385050" },
     ],
+    visa: { number: "W6506929", type: "", issued: "15 abr 2026", expires: "9 abr 2036", entries: "" },
   },
   {
     id: "yamila",
@@ -47,6 +49,7 @@ export const travelers: Traveler[] = [
       { label: "Pasaporte", value: "AAJ894600" },
       { label: "Billete vuelta", value: "044-7504385049" },
     ],
+    visa: { number: "V9710224", type: "", issued: "13 ago 2025", expires: "11 ago 2035", entries: "" },
   },
 ];
 
@@ -120,6 +123,8 @@ export const places: Place[] = [
     name: "Disney's Hollywood Studios",
     area: "Walt Disney World",
     address: "Disney's Hollywood Studios, Cypress Dr, Orlando, FL 32830",
+    lat: 28.35745,
+    lon: -81.56299,
     blurb: "Star Wars, Tower of Terror y la montaña de los Muppets. Entrada el 30 de septiembre.",
     hours: "Desde la apertura, el 30 sep",
     highlights: [
@@ -170,6 +175,8 @@ export const places: Place[] = [
     name: "Magic Kingdom",
     area: "Walt Disney World",
     address: "Magic Kingdom Park, 4720 Caribbean Way, Orlando, FL 32830",
+    lat: 28.41695,
+    lon: -81.58511,
     blurb: "Mickey’s Not-So-Scary Halloween Party. La entrada es a las 16:00 del 1 de octubre.",
     hours: "Fiesta desde las 16:00",
     highlights: [
@@ -227,6 +234,8 @@ export const places: Place[] = [
     name: "Universal Studios Florida",
     area: "Universal Orlando",
     address: "Universal Studios Florida, 6000 Universal Blvd, Orlando, FL 32819",
+    lat: 28.4739,
+    lon: -81.46125,
     blurb: "Diagon Alley, la momia y Minions. Día de parque el 5 de octubre.",
     hours: "Apertura, 5 oct",
     highlights: [
@@ -282,6 +291,8 @@ export const places: Place[] = [
     name: "Islands of Adventure",
     area: "Universal Orlando",
     address: "Universal's Islands of Adventure, 6000 Universal Blvd, Orlando, FL 32819",
+    lat: 28.471879,
+    lon: -81.471211,
     blurb: "Hagrid, VelociCoaster, Marvel y el agua. Día de parque el 6 de octubre.",
     hours: "Apertura, 6 oct",
     highlights: [
@@ -351,6 +362,8 @@ export const places: Place[] = [
     name: "Kennedy Space Center",
     area: "Merritt Island",
     address: "Kennedy Space Center Visitor Complex, Space Commerce Way, Merritt Island, FL 32953",
+    lat: 28.52428,
+    lon: -80.681856,
     blurb: "Día fuera de Orlando, el 3 de octubre. El transbordador Atlantis es la parada que no se salta.",
     hours: "09:00 – 15:00",
     highlights: [
@@ -371,6 +384,8 @@ export const places: Place[] = [
     name: "Orlando International Premium Outlets",
     area: "International Drive",
     address: "4951 International Dr, Orlando, FL 32819",
+    lat: 28.475067,
+    lon: -81.451483,
     blurb: "Mañana del 1 de octubre, antes de la fiesta de Mickey.",
     hours: "09:30 – 13:30",
     highlights: [
@@ -386,6 +401,8 @@ export const places: Place[] = [
     name: "Vineland Premium Outlets",
     area: "Lake Buena Vista",
     address: "8200 Vineland Ave, Orlando, FL 32821",
+    lat: 28.387286,
+    lon: -81.492285,
     blurb: "Otro Character Warehouse, por si en International Drive no consiguen talle.",
     highlights: [
       { title: "Character Warehouse", detail: "Outlet de Disney.", priority: "si" },
@@ -397,7 +414,9 @@ export const places: Place[] = [
     category: "Compras",
     name: "Orlando Outlet Marketplace",
     area: "Orlando",
-    address: "Orlando Outlet Marketplace, Orlando, FL",
+    address: "Orlando Outlet Marketplace, 5259 International Dr, Orlando, FL 32819",
+    lat: 28.467998,
+    lon: -81.452313,
     blurb: "Parada corta si falta algo de Adidas.",
     highlights: [{ title: "Adidas", priority: "opcional" }],
     tips: ["Queda como reserva de la lista de outlets, sin horario asignado."],
@@ -408,6 +427,8 @@ export const places: Place[] = [
     name: "Florida Mall",
     area: "Orange Blossom Trail",
     address: "8001 S Orange Blossom Trl, Orlando, FL 32809",
+    lat: 28.44597,
+    lon: -81.39538,
     blurb: "Compras bajo techo el 2 de octubre, el día después de la fiesta.",
     hours: "11:00 – 15:00",
     highlights: [
@@ -425,6 +446,8 @@ export const places: Place[] = [
     name: "Crumbl Cookies",
     area: "Cerca de Florida Mall",
     address: "11551 Regency Village Dr, Orlando, FL 32821",
+    lat: 28.38865,
+    lon: -81.48926,
     blurb: "Galletas gigantes para la merienda del 2 de octubre.",
     hours: "15:30",
     highlights: [
@@ -438,6 +461,8 @@ export const places: Place[] = [
     name: "Walmart Supercenter",
     area: "Sand Lake",
     address: "8101 S John Young Pkwy, Orlando, FL 32819",
+    lat: 28.44755,
+    lon: -81.42464,
     blurb: "Primera compra del viaje: agua, snacks y desayuno para los días de parque.",
     hours: "15:30 – 17:30 el 29 sep",
     highlights: [
@@ -455,6 +480,8 @@ export const places: Place[] = [
     name: "Cocoa Beach",
     area: "Costa atlántica",
     address: "150 E Columbia Ln, Cocoa Beach, FL 32931",
+    lat: 28.35872,
+    lon: -80.6066,
     blurb: "La mejor zona para surfear en familia: olas constantes y fondo de arena.",
     hours: "15:30 – 18:30 el 3 oct",
     highlights: [
@@ -479,6 +506,8 @@ export const places: Place[] = [
     name: "Disney Springs",
     area: "Lake Buena Vista",
     address: "1508 E Buena Vista Dr, Lake Buena Vista, FL 32830",
+    lat: 28.368682,
+    lon: -81.523792,
     blurb: "Paseo de la primera noche, sin entrada de parque.",
     hours: "18:30 – 21:30 el 29 sep",
     highlights: [
@@ -496,6 +525,8 @@ export const places: Place[] = [
     name: "McDonald’s de Sand Lake",
     area: "International Drive",
     address: "6875 Sand Lake Rd, Orlando, FL 32819",
+    lat: 28.4506,
+    lon: -81.4712,
     blurb: "El McDonald’s más grande del mundo. Almuerzo del 1 de octubre, entre los outlets y el hotel.",
     hours: "13:30 – 14:30",
     highlights: [
@@ -513,6 +544,8 @@ export const places: Place[] = [
     name: "Baymont by Wyndham",
     area: "Downtown Orlando",
     address: "2500 33rd St, Orlando, FL 32839",
+    lat: 28.507487,
+    lon: -81.416001,
     blurb: "Developer Inn Downtown Orlando. Check-in el 29 de septiembre a las 16:00.",
     hours: "Estadía 29 sep – 13 oct",
     phone: "+14078016365",

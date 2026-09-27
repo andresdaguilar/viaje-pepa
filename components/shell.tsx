@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { Suspense, useEffect, useState, type ReactNode } from "react";
+import { Menu } from "./menu";
 
 const items = [
   { href: "/", label: "Itinerario", icon: Calendar },
@@ -13,6 +14,20 @@ const items = [
 
 export function Shell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [menuOpen]);
 
   return (
     <div className="app">
@@ -21,7 +36,20 @@ export function Shell({ children }: { children: ReactNode }) {
           <small>29 sep – 10 oct</small>
           <strong>Orlando</strong>
         </Link>
+        <button
+          type="button"
+          className="icon-btn"
+          aria-expanded={menuOpen}
+          aria-controls="menu"
+          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <BurgerIcon />
+        </button>
       </header>
+      <Suspense fallback={null}>
+        <Menu open={menuOpen} onClose={() => setMenuOpen(false)} />
+      </Suspense>
       <main className="main">{children}</main>
       <nav className="nav" aria-label="Secciones">
         {items.map((item) => {
@@ -39,6 +67,14 @@ export function Shell({ children }: { children: ReactNode }) {
         })}
       </nav>
     </div>
+  );
+}
+
+function BurgerIcon() {
+  return (
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden>
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
   );
 }
 

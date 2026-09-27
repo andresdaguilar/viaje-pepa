@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { documents, packing, reservations, travelers } from "@/lib/data";
 import type { CheckItem } from "@/lib/types";
 import { CodeRow } from "./copy-button";
@@ -37,9 +38,24 @@ function defaults() {
   return base;
 }
 
+const visaFields: { key: "number" | "type" | "issued" | "expires" | "entries"; label: string }[] = [
+  { key: "number", label: "Número" },
+  { key: "type", label: "Tipo" },
+  { key: "issued", label: "Emisión" },
+  { key: "expires", label: "Vencimiento" },
+  { key: "entries", label: "Entradas" },
+];
+
 export function TravelersScreen() {
-  const [section, setSection] = useState<SectionId>("pasajeros");
+  const router = useRouter();
+  const params = useSearchParams();
+  const requested = params.get("seccion");
+  const section: SectionId = sections.some((item) => item.id === requested) ? (requested as SectionId) : "pasajeros";
   const [checks, setChecks] = useState<Record<string, boolean>>(defaults);
+
+  function openSection(id: SectionId) {
+    router.replace(id === "pasajeros" ? "/viajeros" : `/viajeros?seccion=${id}`, { scroll: false });
+  }
 
   useEffect(() => {
     const saved = window.localStorage.getItem(storageKey);
@@ -81,7 +97,7 @@ export function TravelersScreen() {
             role="tab"
             aria-selected={section === item.id}
             className={section === item.id ? "on" : undefined}
-            onClick={() => setSection(item.id)}
+            onClick={() => openSection(item.id)}
           >
             {item.label}
             {item.id === "equipaje" && packingPending > 0 ? ` · ${packingPending}` : ""}
@@ -101,6 +117,14 @@ export function TravelersScreen() {
               {traveler.facts.map((fact) => (
                 <CodeRow key={fact.label} label={fact.label} value={fact.value} />
               ))}
+            </div>
+            <div className="visa">
+              <p className="section-label">Visa de Estados Unidos</p>
+              {visaFields
+                .filter((field) => traveler.visa[field.key])
+                .map((field) => (
+                  <CodeRow key={field.key} label={field.label} value={traveler.visa[field.key]} />
+                ))}
             </div>
           </article>
         ))

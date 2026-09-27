@@ -98,6 +98,105 @@ button { cursor: pointer; }
 .avatars span:nth-child(3) { background: var(--navy); }
 .people em { font-style: normal; font-size: 13px; font-weight: 650; }
 
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: white;
+  display: grid;
+  place-items: center;
+}
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  border: 0;
+  background: rgba(28, 25, 21, 0.4);
+}
+.drawer {
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  bottom: 0;
+  left: max(0px, calc(50vw - 240px));
+  width: min(420px, 88vw);
+  overflow: auto;
+  background: var(--paper);
+  padding: calc(16px + env(safe-area-inset-top)) 18px calc(28px + env(safe-area-inset-bottom));
+  box-shadow: 12px 0 40px rgba(40, 24, 10, 0.16);
+}
+.menu-list a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 46px;
+  border-bottom: 1px solid var(--line);
+  line-height: 1.3;
+}
+.menu-list a small { color: var(--muted); font-size: 12px; }
+.menu-list a.on { color: var(--coral-deep); font-weight: 750; }
+.pending { color: var(--muted); font-weight: 550; }
+.visa { margin-top: 14px; display: grid; gap: 8px; }
+.visa .section-label { margin: 0 0 2px; }
+.map-page { margin: 0 -16px; }
+.map-canvas {
+  height: calc(100dvh - var(--header-h) - var(--nav-h) - 118px);
+  background: #d7e3df;
+}
+.map-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0 16px 4px;
+  scrollbar-width: none;
+}
+.map-list a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 12px;
+  white-space: nowrap;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.map-list i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+}
+.lock {
+  min-height: 100dvh;
+  padding: calc(18vh + env(safe-area-inset-top)) 22px 32px;
+}
+.lock h1 {
+  font-family: var(--font-fraunces), serif;
+  font-size: 48px;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  margin: 6px 0 8px;
+}
+.lock form { margin-top: 22px; display: grid; gap: 10px; }
+.lock label {
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.lock .btn { width: 100%; }
+.lock .btn:disabled { opacity: 0.45; }
+.lock-error { margin: 0; color: var(--coral-deep); font-weight: 650; }
+.lock-out { width: 100%; margin-top: 22px; }
+.leaflet-pane,
+.leaflet-top,
+.leaflet-bottom { z-index: 5 !important; }
+
 .main {
   padding: 8px 16px var(--nav-h);
 }
